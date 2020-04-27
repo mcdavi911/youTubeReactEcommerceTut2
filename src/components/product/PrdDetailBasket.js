@@ -129,7 +129,7 @@ switch (category) {
   const initQuantitySelect = () => {
     let children = []
     for (let idx = 0; idx < 10; idx++) {
-      children.push(<option aria-label="None" value={idx + 1}>{idx + 1}</option>)
+      children.push(<option aria-label="None" key={idx} value={idx + 1}>{idx + 1}</option>)
     }
 
     return children;

@@ -27,9 +27,9 @@ export default function PrdDetailBasketKit() {
       <PrdDetailBasket>
         <ul>
           {products.map(p => (
-            <li>
+            <li key={p.id}>
               <Typography>
-                {title} asd
+                {p.title}
               </Typography>
 
               {p.category === productType.CASE && <SlctSelect devices={devices} />}

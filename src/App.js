@@ -1,5 +1,8 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
+
+import AppStart from './AppStart';
+
 import { makeStyles } from '@material-ui/core/styles';
 import Box from '@material-ui/core/Box';
 
@@ -15,22 +18,31 @@ import MobileDrawer from './components/MobileDrawer';
 
 
 
-
 const useStyles = makeStyles((theme) => ({
   toolbar: theme.mixins.toolbar,
 }));
 
+//AppStart.setStorePrds();
+
+AppStart.init();
 
 
 function App() {
   const classes = useStyles();
+
+
+
+
+
+
+
 
   return (
     <React.Fragment>
       <Navbar />
       <div className={classes.toolbar}></div>
       <Banner />
-      <Box style={{height: 30}}></Box>
+      <Box style={{ height: 30 }}></Box>
       <MobileDrawer></MobileDrawer>
       <Switch>
         <Route exact path="/" component={PrdList} />

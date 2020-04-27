@@ -77,39 +77,5 @@ export const toggleMobileDrawer = (dispatch) => {
 
 
 
-// Cart
-export const cartIncrement = (dispatch, id) => {
-
-  return dispatch({
-    type: 'CART_INCREMENT',
-    payload: id
-  })
-}
-
-export const cartDecrement = (dispatch, id) => {
-
-  return dispatch({
-    type: 'CART_DECREMENT',
-    payload: id
-  })
-}
-
-export const cartRemove = (dispatch, id) => {
-
-  return dispatch({
-    type: 'CART_REMOVE',
-    payload: id
-  })
-}
-
-
-export const cartClear = (dispatch) => {
-
-  return dispatch({
-    type: 'CART_CLEAR',
-    payload: null
-  })
-}
-
 
 
