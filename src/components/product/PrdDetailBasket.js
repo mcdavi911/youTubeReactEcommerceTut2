@@ -1,7 +1,6 @@
 import React from 'react'
 import { makeStyles } from '@material-ui/core/styles'
 import { Store } from '../../Store';
-import Prd from './Prd'
 
 //import Breadcrumbs from '../Breadcrumbs';
 //import Container from '@material-ui/core/Container';
@@ -13,7 +12,6 @@ import FormControl from '@material-ui/core/FormControl';
 //import InputLabel from '@material-ui/core/InputLabel';
 import Select from '@material-ui/core/Select';
 import ActCart from '../../actions/ActCart'
-import Act from '../../actions/Act';
 
 //import { devices, productType } from '../../data';
 
@@ -62,7 +60,7 @@ export default function PrdDetailBasket({children}) {
   const classes = useStyles();
   let quantity = 1;
 
-  const { /*id, imgHero,*/ category, info, price, title, /*imgs,*/ /*childIds*/ } = state.productDetail;
+  const { /*id, imgHero,*/ category, info, price, title, /*imgs, childIds*/ } = state.productDetail;
 
 
   const initQuantitySelect = () => {
@@ -74,12 +72,6 @@ export default function PrdDetailBasket({children}) {
     return children;
   }
 
-  const addBtn = () => {
-    const product = Prd.create(state.productDetail);
-    product.count += quantity;
-    ActCart.changeCount(dispatch, state.productDetail, quantity);
-    Act.setProductDetail(dispatch, product);
-  }
 
 
   return (
@@ -115,7 +107,7 @@ export default function PrdDetailBasket({children}) {
         </FormControl>
       </Box>
 
-      <Button onClick={() => addBtn()} variant="contained" color="primary" style={{ marginBottom: 24, width: '100%', padding: '16px 24px', borderRadius: 100 }} >Add to Basket</Button>
+      <Button onClick={() => ActCart.add(dispatch, state.productDetail, quantity)} variant="contained" color="primary" style={{ marginBottom: 24, width: '100%', padding: '16px 24px', borderRadius: 100 }} >Add to Basket</Button>
       <Typography style={{ lineHeight: 1.75 }}>{info}</Typography>
     </div>
   )

@@ -8,7 +8,7 @@ export default class ActCart {
   static changeCount = (dispatch, product, count = 1) => {
     const prd = Prd.create(product);
     prd.count += count;
-    
+
     if (prd.count < 1) return;
 
     return dispatch({
@@ -54,24 +54,20 @@ export default class ActCart {
   static add = (dispatch, product, quantity = 1) => {
     //console.log('from action quantity', quantity);
   
-    /*
-    const productNew = Prd.create(product);
-    productNew.count += quantity;
+    const prd = Prd.create(product);
+    prd.count += quantity;
 
-    console.log('productCopy', productNew);
-    */
-
+/*
     const productNew = produce(product, draft => {
       draft.count += quantity;
     })
+    */
     
     return dispatch({
       type: 'CART_ADD',
-      payload: productNew
+      payload: prd
     })
   }
-
-
 }
 
 
