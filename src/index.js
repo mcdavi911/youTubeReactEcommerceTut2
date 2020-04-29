@@ -22,7 +22,7 @@ const theme = createMuiTheme({
       primary: 'rgba(0,0,0,.93)'
     }
   },
-  typography: {
+  typography: { 
     //fontSize: 16,  use default theme body1 instead chaning fontsize globally
     
     fontFamily: [

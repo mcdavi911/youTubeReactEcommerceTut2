@@ -9,16 +9,17 @@ export default class PrdStore {
 
   // get children
   static _setPrdChildren = () => {
+    
+    
     PrdStore._prds.forEach(p => {
-      if (p.childIds.length !== 0) {
+      if (p.childIds.length !== 0) return;
         p.childIds.forEach(id => {
           const prd = PrdStore._prds.find(p => p.id === id);
           p._children.push(prd);
         })
-      }
     })
 
-    console.log('PrdStore_prds',PrdStore._prds)
+    //console.log('PrdStore_prds',PrdStore._prds)
   }
 
   static init = () => {

@@ -3,6 +3,7 @@ import { makeStyles } from '@material-ui/core/styles'
 
 import { Store } from '../../Store';
 import PrdImg from './PrdImg'
+import Prd from './Prd'
 
 import Carousel from 'nuka-carousel';
 import Grid from '@material-ui/core/Grid';
@@ -19,39 +20,24 @@ const useStyles = makeStyles((theme) => ({
 export default function PrdDetailImg() {
   const classes = useStyles();
   const { state, /*dispatch*/ } = React.useContext(Store);
+  const { title, getImgs } = state.productDetail;
 
-  const { imgHero, title } = state.productDetail;
-  
+  //console.log('YOYOYO', state.productDetail.getImgs);
+
   return (
     <div>
-
       <Grid
         container
         direction="row"
         alignItems="center"
         spacing={2}
       >
-        <Grid item className={classes.gridItemProduct}>
-          <PrdImg imgHero={imgHero} title={title} />
-        </Grid>
 
-        {
-          /*
-          {kitProducts.length === 0 ?
-          imgs.map((img, idx) => (
-            <Grid key={idx} item className={classes.gridItemProduct}>
-              <PImg imgHero={imgHero} title={title} />
-            </Grid>
-          ))
-          :
-          kitProducts.map((p, idx) => (
-            <Grid key={idx} item className={classes.gridItemProduct}>
-              <PImg imgHero={p.imgHero} title={p.title} />
-            </Grid>
-          ))
-        }
-          */
-        }
+        {getImgs.map((img, idx) => (
+          <Grid key={idx} item className={classes.gridItemProduct}>
+            <PrdImg imgHero={img} title={title} />
+          </Grid>
+        ))}
       </Grid>
 
       <Carousel>

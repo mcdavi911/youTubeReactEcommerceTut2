@@ -1,15 +1,15 @@
 import React from 'react'
 import { makeStyles } from '@material-ui/core/styles'
 
-import Breadcrumbs from '../components/Breadcrumbs';
-import Container from '@material-ui/core/Container';
-import Grid from '@material-ui/core/Grid';
+//import Breadcrumbs from '../components/Breadcrumbs';
+//import Container from '@material-ui/core/Container';
+//import Grid from '@material-ui/core/Grid';
 import Box from '@material-ui/core/Box';
-import Typography from '@material-ui/core/Typography';
-import Button from '@material-ui/core/Button';
-import PImg from '../components/product/PrdImg'
+//import Typography from '@material-ui/core/Typography';
+//import Button from '@material-ui/core/Button';
+//import PImg from '../components/product/PrdImg'
 
-
+/*
 const useStyles = makeStyles((theme) => ({
   root: {
     boxShadow: 'rgb(229, 229, 229) 0px -1px 0px 0px inset',
@@ -47,11 +47,11 @@ const useStyles = makeStyles((theme) => ({
     padding: 8
   },
 }));
-
+*/
 
 
 export default function RightRail(props) {
-  const classes = useStyles();
+  //const classes = useStyles();
 
   return (
     <Box display="flex">

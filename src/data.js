@@ -134,7 +134,7 @@ export const products = [
     id: 8,
     title: "Motorised Duo Pack",
     imgHero: "img/products/nodalview-pack-duo-motorised-V2.png",
-    childIds: [],
+    childIds: [1,2,3],
     imgs: [],
     price: 649,
     info:
@@ -157,7 +157,7 @@ export const products = [
 ];
 
 
-
+/*
 export const productDetail =
 {
   id: 3,
@@ -171,3 +171,17 @@ export const productDetail =
   count: 0,
   category: productType.KIT
 };
+*/
+
+/*
+id: 3,
+  title: "Starter Kit Duo",
+  imgHero: "img/products/kit-duo-pack.jpg",
+  childIds: [1, 2, 4, 5, 6],
+  imgs: [],
+  price: 138,
+  info:
+    "Lorem ipsum dolor amet offal butcher quinoa sustainable gastropub, echo park actually green juice sriracha paleo. Brooklyn sriracha semiotics, DIY coloring book mixtape craft beer sartorial hella blue bottle.",
+  count: 0,
+  category: productType.KIT
+*/

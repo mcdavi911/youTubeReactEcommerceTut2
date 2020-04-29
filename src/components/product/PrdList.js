@@ -1,23 +1,23 @@
 import React from 'react'
 import { makeStyles } from '@material-ui/core/styles'
 
-import Title from '../Title'
+//import Title from '../Title'
 import { Store } from '../../Store'
-import { itemCategories } from '../../data'
+//import { itemCategories } from '../../data'
 import PrdCard from './PrdCard'
 import VerticalNav from '../VerticalNav'
-import { setSearchResults, setCategory } from '../../actions/Action'
+//import Act from '../../actions/Act'
 
 // MUI
 import Container from '@material-ui/core/Container'
 import Hidden from '@material-ui/core/Hidden'
-import List from '@material-ui/core/List'
-import ListItem from '@material-ui/core/ListItem'
+//import List from '@material-ui/core/List'
+//import ListItem from '@material-ui/core/ListItem'
 import Grid from '@material-ui/core/Grid'
-import Box from '@material-ui/core/Box'
-import ListItemIcon from '@material-ui/core/ListItemIcon'
-import ListItemText from '@material-ui/core/ListItemText'
-import Icon from '@material-ui/core/Icon'
+//import Box from '@material-ui/core/Box'
+//import ListItemIcon from '@material-ui/core/ListItemIcon'
+//import ListItemText from '@material-ui/core/ListItemText'
+//import Icon from '@material-ui/core/Icon'
 
 
 /*
@@ -75,6 +75,8 @@ export default function P_List() {
   const { state, dispatch } = React.useContext(Store);
   const classes = useStyles();
 
+  //console.log('hello from prdList', state.searchResults)
+
   return (
     <React.Fragment>
       <Container>
@@ -100,8 +102,9 @@ export default function P_List() {
               {state.searchResults.length !== 0 ?
                 (
                   state.searchResults.map(p => (
+                      
                     <Grid key={p.id} item className={classes.gridItemProduct}>
-                      <PrdCard {...p} />
+                      <PrdCard product={p} />
                     </Grid>
                   ))
                 ) : (

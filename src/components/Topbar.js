@@ -1,11 +1,11 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
 
-import styled from 'styled-components'
+//import styled from 'styled-components'
 //import { ButtonContainer } from './Button'
 import { Store } from '../Store'
 //import SearchInput from './SearchInput'
-import { setSearchTerm, setSearchResults, setCategory, toggleMobileDrawer } from '../actions/Action'
+import Act from '../actions/Act'
 
 //import logo from '../assets/img/nodalview-nav-logo.png'
 import Search from './Search'
@@ -21,7 +21,7 @@ import InputBase from '@material-ui/core/InputBase'
 import Badge from '@material-ui/core/Badge';
 import Hidden from '@material-ui/core/Hidden';
 
-import SearchIcon from '@material-ui/icons/Search'
+//import SearchIcon from '@material-ui/icons/Search'
 import ShoppingBasket from '@material-ui/icons/ShoppingBasket'
 import MenuIcon from '@material-ui/icons/Menu';
 //import ShoppingCart from '@material-ui/icons/ShoppingCart'
@@ -135,8 +135,6 @@ const useStyles = makeStyles((theme) => ({
       marginRight: theme.spacing(1),
     }
   },
-
-
   hidden: {
     visibility: 'hidden'
   },
@@ -159,47 +157,37 @@ const useStyles = makeStyles((theme) => ({
 
 
 
-
 export default function Navbar() {
   const classes = useStyles();
   const { state, dispatch } = React.useContext(Store);
-  //const [isSearchToggle, setIsSearchToggle] = React.useState(false);
 
-  //const [isDrawerToggle, setIsDrawerToggle] = React.useState(false);
+  const prdAmount = 0;
 
-  /*console.log(isSearchToggle)*/
-
-  /*
-  const toggleSearch = () => {
-    setIsSearchToggle((prevState) => !prevState);
-  }
-  */
-
-  const cartAmount = () => {
-    if (state.cart.length === 0) return;
+  const getCartAmount = () => {
     let count = 0;
-    
+
     state.cart.forEach(p => {
       count += p.count;
     })
 
-    return count
-  };
-
-  /*
-  const searchChange = e => {
-    setSearchTerm(dispatch, e.target.value);
-  };
-  */
+    return count;
+  }
 
 
   React.useEffect(() => {
-    setSearchResults(dispatch, state.products, state.searchTerm);
+    console.log('react useEffect fired');
+  }, [state.cart]);
+
+
+
+
+  React.useEffect(() => {
+    Act.setSearchResults(dispatch, state.products, state.searchTerm);
   }, [state.searchTerm, state.products, dispatch]);
 
 
   React.useEffect(() => {
-    setCategory(dispatch, state.searchTerm.length === 0 ? undefined : 'search')
+    Act.setCategory(dispatch, state.searchTerm.length === 0 ? undefined : 'search')
 
   }, [state.searchTerm, dispatch]);
 
@@ -213,7 +201,7 @@ export default function Navbar() {
           <Toolbar disableGutters className={classes.toolbar}>
 
             <Hidden mdUp>
-              <IconButton onClick={() => toggleMobileDrawer(dispatch)} edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
+              <IconButton onClick={() => Act.toggleMobileDrawer(dispatch)} edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
                 <MenuIcon />
               </IconButton>
 
@@ -221,7 +209,7 @@ export default function Navbar() {
             </Hidden>
 
 
-            <Link to='/' onClick={() => { setCategory(dispatch); setSearchResults(dispatch, state.products) }}>
+            <Link to='/' onClick={() => { Act.setCategory(dispatch); Act.setSearchResults(dispatch, state.products) }}>
               <img className={classes.brand} src="img/nodalview-shop-logo.png" alt="nodalview logo" />
             </Link>
 
@@ -232,20 +220,13 @@ export default function Navbar() {
               <div className={classes.grow} />
             </Hidden>
 
-
-
-
-
             <Link to="/cart" style={{ marginRight: 12 }}>
               <IconButton>
-                <Badge badgeContent={cartAmount()} color="primary">
+                <Badge badgeContent={getCartAmount()} color="primary">
                   <ShoppingBasket />
                 </Badge>
               </IconButton>
             </Link>
-
-
-
 
           </Toolbar>
         </Container>

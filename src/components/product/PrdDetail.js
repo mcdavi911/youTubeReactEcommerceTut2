@@ -22,13 +22,10 @@ const useStyles = makeStyles((theme) => ({
 }));
 */
 
-
-
 export default function PrdDetail(props) {
   const { state, /*dispatch*/ } = React.useContext(Store);
+  
   //const classes = useStyles();
-
-  let quantity = 1;
 
   const { category } = state.productDetail;
 
